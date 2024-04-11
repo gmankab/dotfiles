@@ -1,0 +1,7 @@
+
+[Service]
+ExecStart=waybar
+
+[Install]
+WantedBy=default.target
+
