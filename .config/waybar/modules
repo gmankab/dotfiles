@@ -1,0 +1,42 @@
+{
+    "hyprland/workspaces": {
+        "active-only": false,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "default": ""
+        }
+    },
+    "bluetooth": {
+        "format": "",
+        "format-disabled": "󰂱",
+        "format-connected": " {device_battery_percentage}%",
+        "tooltip-format": " {device_alias}",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": " {device_alias} 󰂄{device_battery_percentage}%",
+        "tooltip": true,
+        "on-click": "blueman-manager"
+    },
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "en",
+        "format-ru": "ru"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} 󰂰 {volume}%",
+        "format-muted": "󰖁",
+        "format-icons": {
+            "default": ["", "", "󰕾", ""]
+        },
+        "ignored-sinks": ["Easy Effects Sink"],
+        "tooltip-format": "{icon} {desc} | {volume}%",
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "tooltip-format": "{source_desc} | {source_volume}%",
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "include": "~/.config/waybar/modules",
+    "spacing": 3,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "hyprland/language",
+        "bluetooth",
+        "pulseaudio",
+        "pulseaudio#microphone"
+    ]
+}
+// vi: ft=json
+

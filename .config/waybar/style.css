@@ -1,0 +1,9 @@
+* {
+    background: black;
+    color: white;
+    color: @foreground;
+    padding-right: 3px;
+    padding-left: 3px;
+    font-family: "JetBrainsMono Nerd Font"
+}
+
