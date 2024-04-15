@@ -1,0 +1,11 @@
+configuration {
+    show-icons:         true;
+    display-drun:       "";
+    display-search:     "";
+    disable-history:    false;
+	kb-row-down:        "Down,j";
+	kb-row-up:          "Up,k";
+}
+
+@theme "rounded-blue-dark.rasi"
+
