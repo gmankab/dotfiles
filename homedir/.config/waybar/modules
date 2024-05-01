@@ -1,3 +1,4 @@
+// vi: ft=json
 {
     "hyprland/workspaces": {
         "active-only": false,
@@ -9,12 +10,12 @@
         }
     },
     "bluetooth": {
-        "format": "",
-        "format-disabled": "󰂱",
-        "format-connected": " {device_battery_percentage}%",
+        "format": "󰂯",
+        "format-disabled": "󰂲",
+        "format-connected": "󰥉 {device_battery_percentage}%",
         "tooltip-format": " {device_alias}",
         "tooltip-format-connected": "{device_enumerate}",
-        "tooltip-format-enumerate-connected": " {device_alias} 󰂄{device_battery_percentage}%",
+        "tooltip-format-enumerate-connected": "󰥉 {device_battery_percentage}% | {device_alias}",
         "tooltip": true,
         "on-click": "blueman-manager"
     },
@@ -24,19 +25,23 @@
         "format-ru": "ru"
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-bluetooth": "{icon} 󰂰 {volume}%",
-        "format-muted": "󰖁",
+        "format": "󰕾 {volume}%",
+        "format-bluetooth": "󰗾 {volume}%",
         "format-icons": {
-            "default": ["", "", "󰕾", ""]
+            "default": ["󰕾"]
         },
-        "ignored-sinks": ["Easy Effects Sink"],
-        "tooltip-format": "{icon} {desc} | {volume}%",
+        "tooltip-format": "{icon} {volume}% | {desc}"
     },
     "pulseaudio#microphone": {
         "format": "{format_source}",
         "format-source": " {volume}%",
         "format-source-muted": "",
-        "tooltip-format": "{source_desc} | {source_volume}%",
+        "tooltip-format": "{source_desc} | {source_volume}%"
+    },
+    "custom/separator": {
+        "format": "  ",
+        "interval": "once",
+        "tooltip": false
     }
 }
+

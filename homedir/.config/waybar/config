@@ -1,7 +1,8 @@
+// vi: ft=json
 {
     "include": "~/.config/waybar/modules",
-    "spacing": 3,
     "modules-left": [
+        "custom/separator",
         "hyprland/workspaces"
     ],
     "modules-center": [
@@ -9,10 +10,13 @@
     ],
     "modules-right": [
         "hyprland/language",
+        "custom/separator",
         "bluetooth",
+        "custom/separator",
         "pulseaudio",
-        "pulseaudio#microphone"
+        "custom/separator",
+        "pulseaudio#microphone",
+        "custom/separator"
     ]
 }
-// vi: ft=json
 
