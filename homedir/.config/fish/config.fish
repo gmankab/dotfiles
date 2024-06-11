@@ -12,6 +12,7 @@ bind p fish_clipboard_paste
 alias pc='pacman --noconfirm'
 alias ya='yay --noconfirm'
 fish_add_path -m ~/.local/bin
+fish_add_path -m ~/.cargo/bin
 if test -d ~/.pyenv
   fish_add_path -m ~/.pyenv/versions/*/bin
 end
