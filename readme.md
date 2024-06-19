@@ -1,7 +1,7 @@
 ## gmanka's dotfiles
 
 ### my setup
-- os: fedora silverblue
+- os: fedora atomic [wayblue](https://github.com/wayblueorg/wayblue)
 - compositor: hyprland
 - bar: waybar
 - shell: fish
