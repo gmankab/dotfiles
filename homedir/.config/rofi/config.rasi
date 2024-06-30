@@ -3,8 +3,8 @@ configuration {
     display-drun:       "";
     display-search:     "";
     disable-history:    false;
-	kb-row-down:        "Down,j";
-	kb-row-up:          "Up,k";
+    kb-row-down:        "Down,n";
+    kb-row-up:          "Up,e";
 }
 
 @theme "rounded-blue-dark.rasi"
