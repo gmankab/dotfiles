@@ -52,13 +52,29 @@ function fish_prompt
     set -l green (set_color -o green)
     set -l blue (set_color -o blue)
     set -l normal (set_color normal)
-    set -l arrow_color "$green"
+    set -l color "$green"
     if test $__last_command_exit_status != 0
-        set arrow_color "$red"
+        set color "$red"
     end
-    set -l arrow "$arrow_color➜ "
-    if fish_is_root_user
-        set arrow "$arrow_color# "
+    set distro_name (grep '^ID=' /etc/os-release | cut -d '=' -f2 | tr -d '"')
+    set distro (grep '^ID=' /etc/os-release | cut -d '=' -f2 | tr -d '"')
+    switch $distro
+        case fedora
+            set icon ''
+        case arch
+            set icon '󰣇'
+        case endeavour
+            set icon '󰣇'
+        case nixos
+            set icon '󱄅'
+        case vanilla
+            set icon ''
+        case debian
+            set icon ''
+        case ubuntu
+            set icon ''
+        case *
+            set icon '➜'
     end
     set -l cwd $cyan(basename (prompt_pwd))
     set -l repo_info
@@ -70,6 +86,6 @@ function fish_prompt
             set repo_info "$repo_info$dirty"
         end
     end
-    echo -n -s $arrow ' '$cwd $repo_info $normal ' '
+    echo -n -s $color $icon '  '$cwd $repo_info $normal ' '
 end
 
