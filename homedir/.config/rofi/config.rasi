@@ -1,10 +1,11 @@
 configuration {
     show-icons:         true;
-    display-drun:       "";
-    display-search:     "";
     disable-history:    false;
-    kb-row-down:        "Down,n";
-    kb-row-up:          "Up,e";
+    display-search:     "";
+    display-drun:       "";
+    kb-move-end:        "";
+    kb-row-down:        "Down,Control+n";
+    kb-row-up:          "Up,Control+e";
 }
 
 @theme "rounded-blue-dark.rasi"
