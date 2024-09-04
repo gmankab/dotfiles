@@ -1,7 +1,7 @@
 [Service]
 ExecStart=waybar
-Restart=on-failure
 RestartSec=1s
+Restart=always
 
 [Install]
 WantedBy=default.target
