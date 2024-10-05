@@ -1,20 +1,19 @@
 fish_vi_key_bindings
+fish_add_path -m ~/.local/bin
+fish_add_path -m ~/.cargo/bin
+
+bind y fish_clipboard_copy
+bind p fish_clipboard_paste
+
+alias pc='pacman --noconfirm'
+alias ya='yay --noconfirm'
+
 set fish_cursor_default block
 set fish_cursor_insert line
 set fish_cursor_replace_one underscore
 set fish_cursor_visual block
 set fish_greeting
 set -Ux EDITOR nvim
-bind y fish_clipboard_copy
-bind p fish_clipboard_paste
-alias pc='pacman --noconfirm'
-alias ya='yay --noconfirm'
-fish_add_path -m ~/.local/bin
-fish_add_path -m ~/.cargo/bin
-if test -d ~/.pyenv
-  fish_add_path -m ~/.pyenv/versions/*/bin
-end
-
 
 # xdg
 set XDG_CONFIG_HOME $HOME/.config
@@ -29,4 +28,6 @@ set PYTHON_HISTORY $XDG_STATE_HOME/python/history
 set RUFF_CACHE_DIR $XDG_CACHE_HOME/ruff
 set CARGO_HOME $XDG_DATA_HOME/cargo
 set WINEPREFIX $XDG_DATA_HOME/wineprefixes/default
+
+source $XDG_CONFIG_HOME/fish/conf.d/zoxide.fish
 

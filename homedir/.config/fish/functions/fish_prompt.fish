@@ -56,6 +56,7 @@ function fish_prompt
     if test $__last_command_exit_status != 0
         set color "$red"
     end
+    set distro_name (grep '^ID=' /etc/os-release | cut -d '=' -f2 | tr -d '"')
     set distro (grep '^ID=' /etc/os-release | cut -d '=' -f2 | tr -d '"')
     switch $distro
         case fedora
@@ -78,6 +79,9 @@ function fish_prompt
             set icon '󱄛'
         case *
             set icon '➜'
+    end
+    if test -n "$container"
+        set icon "📦$icon"
     end
     set -l cwd $cyan(basename (prompt_pwd))
     set -l repo_info
