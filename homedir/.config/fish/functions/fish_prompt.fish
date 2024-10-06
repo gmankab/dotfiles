@@ -58,6 +58,7 @@ function fish_prompt
     end
     set distro_name (grep '^ID=' /etc/os-release | cut -d '=' -f2 | tr -d '"')
     set distro (grep '^ID=' /etc/os-release | cut -d '=' -f2 | tr -d '"')
+    set icon '➜'
     switch $distro
         case fedora
             set icon ''
@@ -77,8 +78,8 @@ function fish_prompt
             set icon '󱄛'
         case rhel
             set icon '󱄛'
-        case *
-            set icon '➜'
+        case openwrt
+            set icon ''
     end
     if test -n "$container"
         set icon "📦$icon"
