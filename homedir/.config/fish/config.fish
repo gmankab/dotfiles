@@ -4,6 +4,8 @@ fish_add_path -m ~/.cargo/bin
 
 bind y fish_clipboard_copy
 bind p fish_clipboard_paste
+bind -M default n 'down-or-search'
+bind -M default e 'up-or-search'
 
 alias pc='pacman --noconfirm'
 alias ya='yay --noconfirm'
@@ -29,5 +31,8 @@ set RUFF_CACHE_DIR $XDG_CACHE_HOME/ruff
 set CARGO_HOME $XDG_DATA_HOME/cargo
 set WINEPREFIX $XDG_DATA_HOME/wineprefixes/default
 
-source $XDG_CONFIG_HOME/fish/conf.d/zoxide.fish
+
+if type -q zoxide
+    zoxide init fish | source
+end
 
