@@ -31,8 +31,8 @@ set RUFF_CACHE_DIR $XDG_CACHE_HOME/ruff
 set CARGO_HOME $XDG_DATA_HOME/cargo
 set WINEPREFIX $XDG_DATA_HOME/wineprefixes/default
 
-
 if type -q zoxide
     zoxide init fish | source
+    alias cd=__zoxide_z
 end
 
