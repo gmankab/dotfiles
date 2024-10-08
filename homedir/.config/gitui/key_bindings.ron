@@ -1,0 +1,6 @@
+(
+    edit_file: Some(( code: Char('e'), modifiers: "ALT")),
+    move_up: Some(( code: Char('e'), modifiers: "")),
+    move_down: Some(( code: Char('n'), modifiers: "")),
+)
+
