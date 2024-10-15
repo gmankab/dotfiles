@@ -16,7 +16,9 @@
         "pulseaudio",
         "custom/separator",
         "pulseaudio#microphone",
-        "custom/separator"
+        "custom/separator",
+        "battery",
+        "custom/separator",
     ]
 }
 
