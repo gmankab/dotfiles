@@ -39,29 +39,28 @@
         "tooltip-format": "{source_desc} | {source_volume}%"
     },
     "battery": {
-        "interval": 2,
-        "align": 0,
-        "rotate": 0,
         "full-at": 100,
         "design-capacity": false,
         "states": {
-          "good": 95,
-          "warning": 30,
-          "critical": 15
-                 },
-        "format": "{icon} {capacity}%",
-        "format-charging": "{icon} {capacity}%",
-        "format-plugged": "󱘖 {capacity}%",
-            "format-alt-click": "click",
-        "format-full": "{icon} Full",
-        "format-alt": "{icon} {time}",
+          "full": 100,
+          "good": 99,
+          "warning": 20,
+          "critical": 10
+         },
         "format-icons": {
             "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
             "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
         },
-        "format-time": "{H}h {M}min",
         "tooltip": true,
         "tooltip-format": "{timeTo} {power}w",
+        "format": "{icon} {capacity}%",
+        "format-time": "{H}h {M}min",
+        "format-full": "<span color='#00FF00'>{icon} {capacity}%</span>",
+        "format-warning": "<span color='#FFA500'>{icon} {capacity}%</span>",
+        "format-critical": "<span color='#FF4500'>{icon} {capacity}%</span>",
+        "format-charging": "{icon} {capacity}%",
+        "format-plugged": "󱘖 {capacity}%",
+        "format-alt-click": "click"
     },
     "custom/separator": {
         "format": "  ",
