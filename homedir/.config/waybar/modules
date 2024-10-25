@@ -39,6 +39,7 @@
         "tooltip-format": "{source_desc} | {source_volume}%"
     },
     "battery": {
+        "interval": 2,
         "full-at": 100,
         "design-capacity": false,
         "states": {
