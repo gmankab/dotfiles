@@ -82,6 +82,8 @@ function fish_prompt
             set icon '󱄛'
         case rhel
             set icon '󱄛'
+        case opensuse-tumbleweed
+            set icon ''
         case openwrt
             set icon ''
     end
