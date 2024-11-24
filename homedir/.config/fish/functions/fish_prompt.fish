@@ -86,6 +86,10 @@ function fish_prompt
             set icon ''
         case openwrt
             set icon ''
+        case postmarketos
+            set icon ''
+        case alpine
+            set icon ''
     end
     if test -n "$container"
         set icon "📦$icon"
