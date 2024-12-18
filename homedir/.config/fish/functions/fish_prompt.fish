@@ -68,6 +68,8 @@ function fish_prompt
             set icon ''
         case arch
             set icon '󰣇'
+        case archarm
+            set icon '󰣇'
         case endeavour
             set icon '󰣇'
         case nixos
