@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
-sudo apk add fish git podman distrobox
+sudo apk add tmux fish git podman distrobox curl flatpak gnome-software-plugin-flatpak ffmpegthumbnailer
 git clone https://github.com/gmankab/dotfiles ~/proj/dotfiles
 
 # dotfiles
 for dir_path in ~/proj/dotfiles/homedir/.config/*; do
     dir_name=$(basename $dir_path)
-    gio trash ~/.config/$dir_name
-    ln -s $dir_path ~/.config/$dir_name
+    dir_conf=~/.config/$dir_name
+    if [ -d $dir_conf ]; then
+        gio trash $dir_conf
+    cp -r $dir_path $dir_conf
 done
 
 # podman
@@ -16,4 +18,10 @@ sudo gio trash ~/.local/share/containers/storage
 sudo touch /etc/subuid
 sudo touch /etc/subgid
 sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 $(whoami)
+
+# flatpak
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+sudo flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
+flatpak install flathub org.telegram.desktop
+flatpak install fedora  org.gnome.Ptyxis
 
