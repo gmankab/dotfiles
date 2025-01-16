@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo apk remove gnome-maps gnome-calendar gnome-clocks gnome-console gnome-text-editor gnome-weather decibels loupe papers postmarketos-welcome
+sudo apk del gnome-maps gnome-calendar gnome-clocks gnome-console gnome-text-editor gnome-weather decibels loupe papers postmarketos-welcome
 sudo apk upgrade
 sudo apk add tmux fish git podman distrobox curl flatpak gnome-software-plugin-flatpak ffmpegthumbnailer
 git clone https://github.com/gmankab/dotfiles ~/proj/dotfiles
@@ -11,14 +11,17 @@ for dir_path in ~/proj/dotfiles/homedir/.config/*; do
     dir_conf=~/.config/$dir_name
     if [ -d $dir_conf ]; then
         gio trash $dir_conf
+    fi
     cp -r $dir_path $dir_conf
 done
 
 # podman
 if [ -d ~/.local/share/containers ]; then
     sudo gio trash ~/.local/share/containers
+fi
 if [ -d /var/lib/containers ]; then
     sudo gio trash /var/lib/containers
+fi
 sudo rc-update add cgroups
 sudo touch /etc/subuid
 sudo touch /etc/subgid
