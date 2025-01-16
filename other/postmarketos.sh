@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
 
-sudo apk del gnome-maps gnome-calendar gnome-clocks gnome-console gnome-text-editor gnome-weather decibels loupe papers postmarketos-welcome
+# packages
+sudo apk del gnome-maps gnome-calendar gnome-clocks gnome-text-editor gnome-weather decibels loupe papers postmarketos-welcome
 sudo apk upgrade
 sudo apk add tmux fish git podman distrobox curl flatpak gnome-software-plugin-flatpak ffmpegthumbnailer
-git clone https://github.com/gmankab/dotfiles ~/proj/dotfiles
+
+# gnome
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+gsettings set org.gnome.desktop.input-sources show-all-sources true
+gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'ru+rulemak'), ('xkb', 'us+colemak')]"
 
 # dotfiles
+git clone https://github.com/gmankab/dotfiles ~/proj/dotfiles
 for dir_path in ~/proj/dotfiles/homedir/.config/*; do
     dir_name=$(basename $dir_path)
     dir_conf=~/.config/$dir_name
