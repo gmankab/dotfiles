@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+sudo apk remove gnome-maps gnome-calendar gnome-clocks gnome-console gnome-text-editor gnome-weather decibels loupe papers postmarketos-welcome
+sudo apk upgrade
 sudo apk add tmux fish git podman distrobox curl flatpak gnome-software-plugin-flatpak ffmpegthumbnailer
 git clone https://github.com/gmankab/dotfiles ~/proj/dotfiles
 
@@ -13,8 +15,11 @@ for dir_path in ~/proj/dotfiles/homedir/.config/*; do
 done
 
 # podman
+if [ -d ~/.local/share/containers ]; then
+    sudo gio trash ~/.local/share/containers
+if [ -d /var/lib/containers ]; then
+    sudo gio trash /var/lib/containers
 sudo rc-update add cgroups
-sudo gio trash ~/.local/share/containers/storage
 sudo touch /etc/subuid
 sudo touch /etc/subgid
 sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 $(whoami)
