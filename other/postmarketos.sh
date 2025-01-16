@@ -14,13 +14,21 @@ for dir_path in ~/proj/dotfiles/homedir/.config/*; do
     fi
     cp -r $dir_path $dir_conf
 done
+for dir_path in ~/proj/dotfiles/homedir/.local/share/*; do
+    dir_name=$(basename $dir_path)
+    dir_share=~/.local/share/$dir_name
+    if [ -d $dir_conf ]; then
+        gio trash $dir_share
+    fi
+    cp -r $dir_path $dir_share
+done
 
 # podman
 if [ -d ~/.local/share/containers ]; then
-    sudo gio trash ~/.local/share/containers
+    gio trash ~/.local/share/containers
 fi
 if [ -d /var/lib/containers ]; then
-    sudo gio trash /var/lib/containers
+    sudo rm -rf /var/lib/containers
 fi
 sudo rc-update add cgroups
 sudo touch /etc/subuid
