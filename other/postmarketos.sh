@@ -12,6 +12,7 @@ gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'ru+rulemak'), (
 
 # dotfiles
 git clone https://github.com/gmankab/dotfiles ~/proj/dotfiles
+chsh -s /usr/bin/fish
 for dir_path in ~/proj/dotfiles/homedir/.config/*; do
     dir_name=$(basename $dir_path)
     dir_conf=~/.config/$dir_name
