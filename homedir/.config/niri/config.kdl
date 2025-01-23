@@ -1,4 +1,5 @@
 // This config is in the KDL format: https://kdl.dev
+
 // "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
@@ -19,7 +20,6 @@ input {
             variant "colemak,rulemak"
         }
     }
-
     // Next sections include libinput settings.
     // Omitting settings disables them, or leaves them at their default values.
     touchpad {
@@ -81,10 +81,6 @@ output "eDP-1" {
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
      scale 1
 
-    // Transform allows to rotate the output counter-clockwise, valid values are:
-    // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
-    // transform "normal"
-
     // Position of the output in the global coordinate space.
     // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
     // The cursor can only move between directly adjacent outputs.
@@ -95,10 +91,8 @@ output "eDP-1" {
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
     //position x=1280 y=0
-    background-color "#000000"
 }
 output "DSI-1" {
-     scale 2
     transform "270"
 }
 
@@ -205,8 +199,8 @@ binds {
     Mod+I     { focus-column-right; }
 
     Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+N     { move-workspace-down; }
-    Mod+Ctrl+E     { move-workspace-up; }
+    Mod+Ctrl+N     { move-column-to-workspace-down; }
+    Mod+Ctrl+E     { move-column-to-workspace-up; }
     Mod+Ctrl+I     { move-column-right; }
 
     Mod+Ctrl+Left  { move-column-left; }
@@ -247,8 +241,6 @@ binds {
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
-    Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
-    Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
@@ -365,7 +357,7 @@ binds {
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
-    Ctrl+Alt+Delete { quit; }
+    mod+backspace { quit; }
     Mod+Shift+P { power-off-monitors; }
 
     XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
