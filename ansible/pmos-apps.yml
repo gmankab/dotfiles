@@ -1,0 +1,69 @@
+- name: pmos-apps
+  hosts: all
+  become: yes
+  become_method: doas
+  vars_files:
+    - vault.yml
+  tasks:
+    - name: ispmos
+      command: grep -q "postmarketos" /etc/os-release
+      register: ispmos
+      changed_when: false
+      failed_when: false
+    - name: pmos-apps
+      when: ispmos.rc == 0
+      block:
+        - name: upgrade
+          apk:
+            update_cache: yes
+            upgrade: yes
+        - name: remove
+          apk:
+            update_cache: yes
+            name:
+              - postmarketos-welcome
+              - gnome-text-editor
+              - gnome-calendar
+              - gnome-weather
+              - gnome-clocks
+              - gnome-maps
+              - showtime
+              - decibels
+              - papers
+              - loupe
+            state: absent
+        - name: install
+          apk:
+            update_cache: yes
+            name:
+              - gnome-software-plugin-flatpak
+              - ffmpegthumbnailer
+              - fastfetch
+              - distrobox
+              - waydroid
+              - flatpak
+              - podman
+              - curl
+              - tmux
+              - fish
+              - git
+            state: latest
+        - name: chsh fish
+          user:
+            name: "{{ ansible_user_id }}"
+            shell: /usr/bin/fish
+        - name: podman
+          block:
+            - name: rc-update
+              command: rc-update add cgroups
+            - name: subuid
+              file:
+                path: /etc/subuid
+                state: touch
+            - name: subgid
+              file:
+                path: /etc/subgid
+                state: touch
+            - name: usermod
+              shell: "usermod --add-subuids 100000-165535 --add-subgids 100000-165535 {{ ansible_user_id }}"
+

@@ -1,0 +1,37 @@
+- name: ssh
+  hosts: all
+  become: yes
+  become_method: doas
+  vars_files:
+    - vault.yml
+  tasks:
+    - name: keys gmanka
+      ansible.posix.authorized_key:
+        user: gmanka
+        state: present
+        key: "{{ lookup('file', '/var/home/gmanka/files/proj/other/dotfiles/homedir/.ssh/authorized_keys') }}"
+    - name: keys root
+      ansible.posix.authorized_key:
+        user: root
+        state: present
+        key: "{{ lookup('file', '/var/home/gmanka/files/proj/other/dotfiles/homedir/.ssh/authorized_keys') }}"
+    - name: disable-pass-auth
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^(#\s*)?PasswordAuthentication'
+        line: 'PasswordAuthentication no'
+        state: present
+      notify: restart-sshd
+    - name: disable-challenge-response-auth
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^(#\s*)?ChallengeResponseAuthentication'
+        line: 'ChallengeResponseAuthentication no'
+        state: present
+      notify: restart-sshd
+  handlers:
+    - name: restart-sshd
+      ansible.builtin.service:
+        name: sshd
+        state: restarted
+

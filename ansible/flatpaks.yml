@@ -1,0 +1,11 @@
+- name: install apps
+  flatpak:
+    name:
+      - org.telegram.desktop
+      - dev.neovide.neovide
+      - app.devsuite.Ptyxis
+      - org.gnome.Epiphany
+    state: present
+    remote: flathub
+    method: system
+

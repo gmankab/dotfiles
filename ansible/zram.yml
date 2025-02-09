@@ -1,0 +1,36 @@
+- name: zram
+  hosts: all
+  become: yes
+  become_method: doas
+  vars_files:
+    - vault.yml
+  tasks:
+    - name: ispmos
+      command: grep -q "postmarketos" /etc/os-release
+      register: ispmos
+      changed_when: false
+      failed_when: false
+    - name: zram init copy
+      copy:
+        src: "../root/etc/conf.d/zram-init"
+        dest: "/etc/conf.d/zram-init"
+        owner: root
+        group: root
+        mode: "0644"
+      when: ispmos.rc == 0
+      register: zram_init_copy
+    - name: rc-service check
+      command: which rc-service
+      register: rc_service
+      failed_when: false
+    - name: systemctl check
+      command: which systemctl
+      register: systemctl
+      failed_when: false
+    - name: systemctl restart
+      command: systemctl restart zram-init.service
+      when: systemctl.rc == 0 and zram_init_copy.changed
+    - name: rc-service restart
+      command: rc-service zram-init restart
+      when: rc_service.rc == 0 and systemctl.rc != 0 and zram_init_copy.changed
+

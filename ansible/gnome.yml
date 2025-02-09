@@ -1,0 +1,16 @@
+- name: gnome
+  hosts: all
+  vars_files:
+    - vault.yml
+  tasks:
+    - name: gsettings check
+      command: which gsettings
+      register: gsettings
+      failed_when: false
+    - name: packages
+      shell: |
+        gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+        gsettings set org.gnome.desktop.input-sources show-all-sources true
+        gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'ru+rulemak'), ('xkb', 'us+colemak')]"
+      when: gsettings.rc == 0
+

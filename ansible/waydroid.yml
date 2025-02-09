@@ -1,0 +1,10 @@
+- name: waydroid
+  hosts: all
+  gather_facts: yes
+  tasks:
+    - name: hide
+      shell: |
+        for file in /home/gmanka/.local/share/applications/waydroid.*.desktop; do
+          sed -i 's/\[Desktop Entry\]/[Desktop Entry]\nNoDisplay=true/' "$file"
+        done
+

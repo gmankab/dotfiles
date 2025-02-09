@@ -1,0 +1,54 @@
+- name: flathub
+  hosts: all
+  become: yes
+  become_method: doas
+  vars_files:
+    - vault.yml
+  tasks:
+    - name: add flathub
+      flatpak_remote:
+        name: flathub
+        state: present
+        flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+        method: system
+    - name: try install apps
+      block:
+        - include_tasks: flatpaks.yml
+        - name: apps are installed
+          debug:
+            msg: apps are installed, exiting
+      rescue:
+        - name: apps are not installed, checking if there any other flatpaks
+          command: flatpak list --system
+          register: flatpak_list
+          changed_when: false
+        - name: other flatpaks found
+          when: flatpak_list.rc == 0
+          debug:
+            msg: other flatpaks found, skipping reinstalling flathub
+        - name: other flatpaks not found
+          when: flatpak_list.rc != 0
+          block:
+            - name: rm /var/lib/flatpak
+              file:
+                path: /var/lib/flatpak
+                state: absent
+            - name: rm flathub systemd
+              flatpak_remote:
+                method: system
+                name: flathub
+                state: absent
+            - name: rm flathub user
+              flatpak_remote:
+                method: user
+                name: flathub
+                state: absent
+            - name: re-add the flathub remote
+              flatpak_remote:
+                name: flathub
+                state: present
+                flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+                method: system
+            - name: try install apps again
+              include_tasks: flatpaks.yml
+
