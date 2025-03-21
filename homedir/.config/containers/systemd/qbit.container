@@ -1,0 +1,15 @@
+[Container]
+Image=docker.io/qbittorrentofficial/qbittorrent-nox:latest
+AutoUpdate=registry
+PublishPort=8080:8080/tcp
+PublishPort=6881:6881/tcp
+PublishPort=6881:6881/udp
+Volume=/var/home/core/files/torrent:/torrent:z
+Environment=QBT_LEGAL_NOTICE=confirm
+
+[Service]
+SuccessExitStatus=0 143
+
+[Install]
+WantedBy=default.target
+

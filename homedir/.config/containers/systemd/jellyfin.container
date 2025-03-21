@@ -1,0 +1,14 @@
+[Container]
+Image=docker.io/jellyfin/jellyfin:latest
+AutoUpdate=registry
+PublishPort=8096:8096/tcp
+Volume=jellyfin-config:/config:Z
+Volume=jellyfin-cache:/cache:Z
+Volume=/var/home/core/files/torrent:/media:z
+
+[Service]
+SuccessExitStatus=0 143
+
+[Install]
+WantedBy=default.target
+

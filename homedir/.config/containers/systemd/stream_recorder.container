@@ -1,0 +1,11 @@
+[Container]
+Image=quay.io/gmanka/stream_recorder
+Volume=/home/core/files/stream_recorder:/app/data
+PodmanArgs=--tty
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
+
