@@ -1,0 +1,30 @@
+{
+  "ignition": {
+    "version": "3.5.0"
+  },
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "sshAuthorizedKeys": [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP2Fr/8nIPFQ/J86Ld42IFHfpyAebxfMeebEipODtkZA gmanka@mipad",
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC/jLJef/mP0hxVavozmarTfNSD/ZeYdoUj1h8f/tF7h gmanka@pixel5",
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILfwhzOWhRvEbVMuTN1DE0CAUclfxzGZMCRLSmXrh+lp gmanka@thinkpad",
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMXmDKpNoIjRA+u4rO3pIMW95QoynyJbW3D1IjmOJq3C me@fedora",
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDq2ah8g/TX8N/Lj2t0fY6mj0VmmF8HZnc1vEdol5LLgET50k03iQL3Tr1gYZVMMkrk5qT2Jq5VSCySDfA5sSUG2oal8oqNkNcTv+hXyqISqIuhx9NZQCQd7BpJcwPReOFkj1Ppu1yl3s9dnW9VYunYWoGL9/Jzl7b0Zz+HhLsGvNguWhCMoClcd7sFpdsZ0NK63Rot6ISsNmtcLmXt+/TiOsDvKq5AH5AcrJ7FN74FsKyPj5JjkU2RlLOwvma7i0+Bcpxgz823LWdszJ8f6QAUCLc4j8UFZH5YRlMx/zeTpR6th9sG+u7d3odNqMQDwbotNG3+BLIUAe7fYEAqY8q7zBywtg/GG0PWaDJwBdjr+PJIITbiA7mHvcVOYB/ELriVrPcjAhpY4teSDmscPpomYmx0t2g2RBfyG8SmfiPSZaVDmgBTBjqTHHr4Df9Hr2YH2Hh65DmMVOtWGRweskbcagzdy8n0BuX2uSyiliPkjehsJSGwfqrTKK/+0Jca3h2y3T8MuH3GRmNiYr5+7QhJRv6PDFA9F7SA2RiIhBeEmzK+v7b3zKu2KL6QUcLwf4/QHBSbR5h6cmZ2efWoBvNRG2IxsoiN8AZBK0lbNQAFfHnmwtvUxlEtXGwTf87Gp/yAubEoz6WHgbddGDHx/UwMEzMEnA1xdKN9RIa6cLKzSw== grisha@jupiter"
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "filesystems": [
+      {
+        "device": "/dev/disk/by-partlabel/root",
+        "format": "btrfs",
+        "label": "root",
+        "wipeFilesystem": true
+      }
+    ]
+  }
+}
+
