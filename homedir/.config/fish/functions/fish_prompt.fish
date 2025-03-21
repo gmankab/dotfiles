@@ -93,6 +93,9 @@ function fish_prompt
         case alpine
             set icon ''
     end
+    if test -n "$SSH_CONNECTION"
+        set icon "󰌗 $icon"
+    end
     if test -n "$container"
         set icon "📦$icon"
     end
