@@ -1,6 +1,6 @@
 [Container]
 Image=quay.io/gmanka/stream_recorder
-Volume=/home/core/files/stream_recorder:/app/data:z
+Volume=/var/home/core/files/stream_recorder:/app/data:z
 PodmanArgs=--tty
 
 [Service]
