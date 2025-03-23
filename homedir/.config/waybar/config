@@ -3,13 +3,13 @@
     "include": "~/.config/waybar/modules",
     "modules-left": [
         "custom/separator",
-        "hyprland/workspaces"
+        "niri/workspaces"
     ],
     "modules-center": [
         "clock"
     ],
     "modules-right": [
-        "hyprland/language",
+        "niri/language",
         "custom/separator",
         "bluetooth",
         "custom/separator",

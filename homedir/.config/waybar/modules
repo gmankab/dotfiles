@@ -1,5 +1,11 @@
 // vi: ft=json
 {
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": " ",
+        "format-ethernet": " ",
+        "format-disconnected": "󰤮 ",
+    },
     "niri/workspaces": {
         "active-only": false,
         "all-outputs": true,
@@ -19,7 +25,7 @@
         "tooltip": true,
         "on-click": "blueman-manager"
     },
-    "hyprland/language": {
+    "niri/language": {
         "format": "{}",
         "format-en": "en",
         "format-ru": "ru"
@@ -37,6 +43,13 @@
         "format-source": " {volume}%",
         "format-source-muted": "",
         "tooltip-format": "{source_desc} | {source_volume}%"
+    },
+    "custom/battery-bms": {
+        "exec": "cat /sys/class/power_supply/bms/capacity",
+        "interval": 60,
+        "format": "󰁹 {}%",
+        "return-type": "string",
+        "tooltip": false
     },
     "battery": {
         "interval": 2,
