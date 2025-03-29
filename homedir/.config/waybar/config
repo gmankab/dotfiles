@@ -13,6 +13,8 @@
         "custom/separator",
         "bluetooth",
         "custom/separator",
+        "network",
+        "custom/separator",
         "pulseaudio",
         "custom/separator",
         "pulseaudio#microphone",
