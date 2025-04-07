@@ -5,7 +5,7 @@
   "passwd": {
     "users": [
       {
-        "name": "durov",
+        "name": "core",
         "sshAuthorizedKeys": [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP2Fr/8nIPFQ/J86Ld42IFHfpyAebxfMeebEipODtkZA gmanka@mipad",
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC/jLJef/mP0hxVavozmarTfNSD/ZeYdoUj1h8f/tF7h gmanka@pixel5",
