@@ -7,5 +7,6 @@ passwd:
         - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP2Fr/8nIPFQ/J86Ld42IFHfpyAebxfMeebEipODtkZA gmanka@mipad
         - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC/jLJef/mP0hxVavozmarTfNSD/ZeYdoUj1h8f/tF7h gmanka@pixel5
         - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILfwhzOWhRvEbVMuTN1DE0CAUclfxzGZMCRLSmXrh+lp gmanka@thinkpad
+        - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH8kKo6a3A+dm5q+YXQzAkMm7BGDqoZPKEg9S2Ive6AE grisha@thinkpad
         - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMXmDKpNoIjRA+u4rO3pIMW95QoynyJbW3D1IjmOJq3C me@fedora
 
