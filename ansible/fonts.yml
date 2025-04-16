@@ -1,0 +1,17 @@
+- name: font
+  hosts: all
+  gather_facts: yes
+  tasks:
+    - name: mkdir fonts
+      file:
+        path: "{{ ansible_env.HOME }}/.local/share/fonts"
+        state: directory
+    - name: adwaita mono
+      get_url:
+        url: https://raw.githubusercontent.com/gmankab/fonts/refs/heads/main/patched/AdwaitaMonoNerdFont-Regular.ttf
+        dest: "{{ ansible_env.HOME }}/.local/share/fonts/AdwaitaMonoNerdFont-Regular.ttf"
+    - name: adwaita sans
+      get_url:
+        url: https://raw.githubusercontent.com/gmankab/fonts/refs/heads/main/patched/AdwaitaSansNerdFont-Regular.ttf
+        dest: "{{ ansible_env.HOME }}/.local/share/fonts/AdwaitaSansNerdFont-Regular.ttf"
+

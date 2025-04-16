@@ -3,14 +3,13 @@
   vars_files:
     - vault.yml
   tasks:
-    - name: gsettings check
-      command: which gsettings
-      register: gsettings
-      failed_when: false
-    - name: packages
+    - name: gnome
       shell: |
         gsettings set org.gnome.desktop.interface color-scheme prefer-dark
         gsettings set org.gnome.desktop.input-sources show-all-sources true
-        gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'ru+rulemak'), ('xkb', 'us+colemak')]"
-      when: gsettings.rc == 0
+        gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us+colemak'), ('xkb', 'ru+rulemak')]"
+        gsettings set org.gnome.desktop.interface font-name 'AdwaitaSans Nerd Font 16'
+        gsettings set org.gnome.desktop.interface document-font-name 'AdwaitaSans Nerd Font 16'
+        gsettings set org.gnome.desktop.interface monospace-font-name 'AdwaitaMono Nerd Font 16'
+        gsettings set org.gnome.desktop.interface clock-format '24h'
 

@@ -18,16 +18,17 @@
           debug:
             msg: apps are installed, exiting
       rescue:
-        - name: apps are not installed, checking if there any other flatpaks
+        - name: apps are not installed, checking if any flatpaks installed
           command: flatpak list --system
           register: flatpak_list
           changed_when: false
+          failed_when: false
         - name: other flatpaks found
-          when: flatpak_list.rc == 0
+          when: flatpak_list.stdout != ""
           debug:
             msg: other flatpaks found, skipping reinstalling flathub
         - name: other flatpaks not found
-          when: flatpak_list.rc != 0
+          when: flatpak_list.stdout == ""
           block:
             - name: rm /var/lib/flatpak
               file:

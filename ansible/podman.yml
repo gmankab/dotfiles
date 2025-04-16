@@ -1,0 +1,34 @@
+- name: get user
+  hosts: all
+  gather_facts: yes
+  become: no
+  tasks:
+    - set_fact:
+        remote_user: "{{ ansible_user_id }}"
+- name: podman
+  hosts: all
+  become: yes
+  become_method: doas
+  vars_files:
+    - vault.yml
+  tasks:
+    - name: ispmos
+      command: grep -q "postmarketos" /etc/os-release
+      register: ispmos
+      changed_when: false
+      failed_when: false
+    - when: ispmos.rc == 0
+      block:
+        - name: rc-update
+          command: rc-update add cgroups
+        - name: subuid
+          file:
+            path: /etc/subuid
+            state: touch
+        - name: subgid
+          file:
+            path: /etc/subgid
+            state: touch
+        - name: usermod
+          shell: "usermod --add-subuids 100000-165535 --add-subgids 100000-165535 {{ remote_user }}"
+

@@ -48,22 +48,4 @@
               - fish
               - git
             state: latest
-        - name: chsh fish
-          user:
-            name: "{{ ansible_user_id }}"
-            shell: /usr/bin/fish
-        - name: podman
-          block:
-            - name: rc-update
-              command: rc-update add cgroups
-            - name: subuid
-              file:
-                path: /etc/subuid
-                state: touch
-            - name: subgid
-              file:
-                path: /etc/subgid
-                state: touch
-            - name: usermod
-              shell: "usermod --add-subuids 100000-165535 --add-subgids 100000-165535 {{ ansible_user_id }}"
 
