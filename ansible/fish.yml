@@ -1,18 +1,10 @@
-- name: get user
-  hosts: all
-  gather_facts: yes
-  become: no
-  tasks:
-    - set_fact:
-        remote_user: "{{ ansible_user_id }}"
 - name: chsh
   hosts: all
   become: yes
-  become_method: doas
   vars_files:
     - vault.yml
   tasks:
     - user:
-        name: "{{ remote_user }}"
-        shell: /usr/bin/fish
+      name: "{{ remote_user }}"
+      shell: /usr/bin/fish
 

@@ -1,0 +1,9 @@
+- name: get user
+  hosts: all
+  gather_facts: yes
+  become: no
+  tasks:
+    - name: get user
+      set_fact:
+        user: "{{ ansible_user_id }}"
+
