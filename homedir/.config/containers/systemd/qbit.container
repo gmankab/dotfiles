@@ -10,6 +10,7 @@ Environment=QBT_LEGAL_NOTICE=confirm
 
 [Service]
 SuccessExitStatus=0 143
+Restart=on-failure
 
 [Install]
 WantedBy=default.target

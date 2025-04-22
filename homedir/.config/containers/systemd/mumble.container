@@ -1,0 +1,10 @@
+[Container]
+ContainerName=mumble
+Image=ghcr.io/mumble-voip/mumble-server:latest
+PublishPort=64738:64738/tcp
+PublishPort=64738:64738/udp
+Volume=/var/home/core/files/mumble:/data:z
+
+[Service]
+Restart=on-failure
+

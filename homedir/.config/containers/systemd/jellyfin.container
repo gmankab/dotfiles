@@ -8,6 +8,7 @@ Volume=/var/home/core/files/torrent:/media:z
 
 [Service]
 SuccessExitStatus=0 143
+Restart=on-failure
 
 [Install]
 WantedBy=default.target
