@@ -1,10 +1,18 @@
 - name: gnome config
   shell: |
-    gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-    gsettings set org.gnome.desktop.input-sources show-all-sources true
-    gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us+colemak'), ('xkb', 'ru+rulemak')]"
-    gsettings set org.gnome.desktop.interface clock-format '24h'
     gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['<Control><Alt>Right', '<Super>n']"
     gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['<Control><Alt>Left', '<Super>e']"
     gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4', '<Super>q']"
+    gsettings set org.gnome.settings-daemon.plugins.power power-saver-profile-on-low-battery false
+    gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'nothing'
+    gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing'
+    gsettings set org.gnome.settings-daemon.plugins.power idle-dim false
+    gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us+colemak'), ('xkb', 'ru+rulemak')]"
+    gsettings set org.gnome.desktop.input-sources show-all-sources true
+    gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+    gsettings set org.gnome.desktop.interface clock-format '24h'
+    gsettings set org.gnome.desktop.interface clock-show-date false
+    gsettings set org.gnome.desktop.notifications show-banners false
+    gsettings set org.gnome.desktop.datetime automatic-timezone true
+    gsettings set org.gnome.desktop.session idle-delay 'uint32 0'
 
