@@ -1,8 +1,5 @@
 - name: gnome config
   shell: |
-    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['<Control><Alt>Right', '<Super>n']"
-    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['<Control><Alt>Left', '<Super>e']"
-    gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4', '<Super>q']"
     gsettings set org.gnome.settings-daemon.plugins.power power-saver-profile-on-low-battery false
     gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'nothing'
     gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing'

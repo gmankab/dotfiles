@@ -9,10 +9,11 @@
     - include_tasks: any/fish.yml
     - include_tasks: any/fonts.yml
     - include_tasks: any/dotfiles.yml
-    - include_tasks: any/gnome.yml
     - include_tasks: any/ptyxis.yml
     - include_tasks: any/git.yml
     - include_tasks: any/zram-generator.yml
     - include_tasks: any/waydroid.yml
     - include_tasks: any/flatpak-apps.yml
+    - include_tasks: any/gnome-keybinds.yml
+    - include_tasks: any/gnome-settings.yml
 
