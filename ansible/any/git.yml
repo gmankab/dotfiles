@@ -1,0 +1,6 @@
+- name: git
+  shell: |
+    git config --global user.email "gmankab@gmail.com"
+    git config --global user.name "gmanka"
+    git config --global credential.helper store
+

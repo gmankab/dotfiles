@@ -1,0 +1,11 @@
+- name: install fish
+  become: yes
+  ansible.builtin.package:
+    name: fish
+    state: present
+- name: chsh to fish
+  become: yes
+  user:
+    name: "{{ user }}"
+    shell: /usr/bin/fish
+

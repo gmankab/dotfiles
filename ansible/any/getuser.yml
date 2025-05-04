@@ -1,0 +1,4 @@
+- name: get user
+  set_fact:
+    user: "{{ ansible_user_id }}"
+

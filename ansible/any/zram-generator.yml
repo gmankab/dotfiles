@@ -1,0 +1,15 @@
+- name: zram generator conf
+  become: yes
+  copy:
+    src: ../root/etc/systemd/zram-generator.conf
+    dest: /etc/systemd/zram-generator.conf
+- name: daemon reload
+  become: yes
+  ansible.builtin.systemd:
+    daemon_reload: yes
+- name: restart zram setup
+  become: yes
+  ansible.builtin.systemd:
+    name: systemd-zram-setup@zram0.service
+    state: restarted
+

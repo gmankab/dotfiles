@@ -1,0 +1,16 @@
+- name: site
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+  vars_files:
+    - any/vault.yml
+  tasks:
+    - include_tasks: any/getuser.yml
+    - include_tasks: any/fish.yml
+    - include_tasks: any/fonts.yml
+    - include_tasks: any/dotfiles.yml
+    - include_tasks: any/gnome.yml
+    - include_tasks: any/ptyxis.yml
+    - include_tasks: any/git.yml
+    - include_tasks: any/zram-generator.yml
+

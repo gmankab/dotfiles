@@ -1,0 +1,11 @@
+- name: nabu
+  hosts: all
+  vars_files:
+    - vault.yml
+  tasks:
+    - name: nabu
+      shell: |
+        gsettings set org.gnome.desktop.interface font-name 'Adwaita Sans 13'
+        gsettings set org.gnome.desktop.interface document-font-name 'Adwaita Sans 13'
+        gsettings set org.gnome.desktop.interface monospace-font-name 'AdwaitaMono Nerd Font 13'
+

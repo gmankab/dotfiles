@@ -1,0 +1,12 @@
+- name: get ptyxis uuid
+  command: gsettings get org.gnome.Ptyxis default-profile-uuid
+  register: uuid
+  changed_when: false
+- name: ptyxis config
+  shell: |
+    gsettings set org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/{{ uuid.stdout }}/ palette 'Vs Code'
+    gsettings set org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/{{ uuid.stdout }}/ use-custom-command true
+    gsettings set org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/{{ uuid.stdout }}/ custom-command 'tmux'
+    gsettings set org.gnome.Ptyxis.Shortcuts copy-clipboard '<Control>c'
+    gsettings set org.gnome.Ptyxis.Shortcuts paste-clipboard '<Control>v'
+
