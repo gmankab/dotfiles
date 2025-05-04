@@ -12,6 +12,8 @@
       - com.mattjakeman.ExtensionManager
       - com.saivert.pwvucontrol
       - app.devsuite.Ptyxis
+      - io.missioncenter.MissionCenter
+      - net.nokyan.Resources
     state: present
     remote: flathub
     method: system

@@ -1,6 +1,12 @@
-- name: waydroid-hide
+- name: waydroid find
+  ansible.builtin.find:
+    paths: /home/gmanka/.local/share/applications
+    patterns: 'waydroid.*.desktop'
+  register: waydroid
+- name: waydroid hide
   shell: |
     for file in /home/gmanka/.local/share/applications/waydroid.*.desktop; do
       sed -i 's/\[Desktop Entry\]/[Desktop Entry]\nNoDisplay=true/' "$file"
     done
+  when: waydroid.matched > 0
 

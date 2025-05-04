@@ -3,13 +3,16 @@
   copy:
     src: ../root/etc/systemd/zram-generator.conf
     dest: /etc/systemd/zram-generator.conf
+  register: zram
 - name: daemon reload
+  when: zram.changed
   become: yes
-  ansible.builtin.systemd:
+  systemd:
     daemon_reload: yes
 - name: restart zram setup
+  when: zram.changed
   become: yes
-  ansible.builtin.systemd:
+  systemd:
     name: systemd-zram-setup@zram0.service
     state: restarted
 
