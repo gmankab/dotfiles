@@ -49,7 +49,7 @@ binds {
     Mod+Ctrl+Left  { move-column-left; }
     Mod+Ctrl+Right { move-column-right; }
     Mod+Ctrl+Down  { move-column-to-workspace-down; }
-    Mod+Ctrl+Up    { move-column-to-workspace-down; }
+    Mod+Ctrl+Up    { move-column-to-workspace-up; }
     Mod+Minus       { set-column-width  "-10%"; }
     Mod+Equal       { set-column-width  "+10%"; }
     Mod+Shift+Minus { set-window-height "-10%"; }
