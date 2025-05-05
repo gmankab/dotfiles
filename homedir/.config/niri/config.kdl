@@ -12,9 +12,10 @@ input {
     trackpoint {}
 }
 output "eDP-1" {
-     scale 1
+    scale 1
 }
 output "DSI-1" {
+    scale 2
     transform "270"
 }
 screenshot-path "~/files/screenshots/%Y-%m-%d %H-%M-%S.png"
