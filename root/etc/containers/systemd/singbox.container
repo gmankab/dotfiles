@@ -1,0 +1,12 @@
+[Container]
+Image=ghcr.io/sagernet/sing-box
+ContainerName=singbox
+AddCapability=NET_ADMIN
+AddDevice=/dev/net/tun
+Volume=/etc/sing-box:/etc/sing-box:z
+Network=host
+Exec=-C /etc/sing-box/ run
+
+[Install]
+WantedBy=default.target
+

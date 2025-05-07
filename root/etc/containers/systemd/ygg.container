@@ -6,9 +6,6 @@ AddDevice=/dev/net/tun
 Volume=ygg-config:/etc/yggdrasil-network:z
 Network=host
 
-[Service]
-Restart=always
-
 [Install]
 WantedBy=default.target
 

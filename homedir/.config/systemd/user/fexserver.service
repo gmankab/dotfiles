@@ -1,0 +1,4 @@
+[Service]
+ExecStart=FEXServer -f -p
+Restart=always
+
