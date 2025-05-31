@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=gnome control center
+Icon=org.gnome.Settings
+Exec=sh -c "/usr/libexec/gsd-rfkill & XDG_CURRENT_DESKTOP=GNOME gnome-control-center; pkill gsd-rfkill"
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Settings;
+Keywords=Preferences;Settings;
+X-Purism-FormFactor=Workstation;Mobile;
+
