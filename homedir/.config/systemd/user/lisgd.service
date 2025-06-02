@@ -1,0 +1,16 @@
+[Unit]
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=lisgd \
+    -d /dev/input/event6 \
+    -g "1,LR,B,*,R,niri msg action focus-column-left" \
+    -g "1,RL,B,*,R,niri msg action focus-column-right" \
+    -g "1,DU,B,*,P,niri msg action toggle-overview"
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
+
