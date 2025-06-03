@@ -1,6 +1,6 @@
 - name: install fish
   become: yes
-  ansible.builtin.package:
+  package:
     name: fish
     state: present
 - name: chsh to fish
