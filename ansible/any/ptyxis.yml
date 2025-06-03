@@ -1,12 +1,39 @@
-- name: get ptyxis uuid
+- name: get host ptyxis uuid
   command: gsettings get org.gnome.Ptyxis default-profile-uuid
-  register: uuid
+  register: host_uuid
+  failed_when: false
   changed_when: false
-- name: ptyxis config
+- name: get flatpak ptyxis uuid
+  command: flatpak run --command=gsettings app.devsuite.Ptyxis get org.gnome.Ptyxis default-profile-uuid
+  register: flatpak_uuid
+  failed_when: false
+  changed_when: false
+- name: host ptyxis palette
+  when: host_uuid.rc == 0
+  copy:
+    src: ../homedir/.var/app/app.devsuite.Ptyxis/data/app.devsuite.Ptyxis/palettes/gmanka.palette
+    dest: '{{ ansible_env.HOME }}/.local/share/app.devsuite.Ptyxis/palettes/gmanka.palette'
+- name: host ptyxis config
+  when: host_uuid.rc == 0
   shell: |
-    gsettings set org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/{{ uuid.stdout }}/ palette 'Vs Code'
-    gsettings set org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/{{ uuid.stdout }}/ use-custom-command true
-    gsettings set org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/{{ uuid.stdout }}/ custom-command 'tmux'
+    gsettings set org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/{{ host_uuid.stdout }}/ palette 'gmanka'
+    gsettings set org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/{{ host_uuid.stdout }}/ use-custom-command true
+    gsettings set org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/{{ houst_uuid.stdout }}/ custom-command 'tmux'
     gsettings set org.gnome.Ptyxis.Shortcuts copy-clipboard '<Control>c'
     gsettings set org.gnome.Ptyxis.Shortcuts paste-clipboard '<Control>v'
+    gsettings set org.gnome.Ptyxis interface-style 'dark'
+- name: flatpak ptyxis palette
+  when: flatpak_uuid.rc == 0
+  copy:
+    src: ../homedir/.var/app/app.devsuite.Ptyxis/data/app.devsuite.Ptyxis/palettes/gmanka.palette
+    dest: '{{ ansible_env.HOME }}/.var/app/app.devsuite.Ptyxis/data/app.devsuite.Ptyxis/palettes/gmanka.palette'
+- name: flatpak ptyxis config
+  when: flatpak_uuid.rc == 0
+  shell: |
+    flatpak run --command=gsettings app.devsuite.Ptyxis set org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/{{ flatpak_uuid.stdout }}/ palette 'gmanka'
+    flatpak run --command=gsettings app.devsuite.Ptyxis set org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/{{ flatpak_uuid.stdout }}/ use-custom-command true
+    flatpak run --command=gsettings app.devsuite.Ptyxis set org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/{{ flatpak_uuid.stdout }}/ custom-command 'tmux'
+    flatpak run --command=gsettings app.devsuite.Ptyxis set org.gnome.Ptyxis.Shortcuts copy-clipboard '<Control>c'
+    flatpak run --command=gsettings app.devsuite.Ptyxis set org.gnome.Ptyxis.Shortcuts paste-clipboard '<Control>v'
+    flatpak run --command=gsettings app.devsuite.Ptyxis set org.gnome.Ptyxis interface-style 'dark'
 
