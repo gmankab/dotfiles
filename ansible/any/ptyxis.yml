@@ -8,6 +8,10 @@
   register: flatpak_uuid
   failed_when: false
   changed_when: false
+- name: host ptyxis mkdir
+  file:
+    path: '{{ ansible_env.HOME }}/.local/share/app.devsuite.Ptyxis/palettes'
+    state: directory
 - name: host ptyxis palette
   when: host_uuid.rc == 0
   copy:
@@ -18,10 +22,14 @@
   shell: |
     gsettings set org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/{{ host_uuid.stdout }}/ palette 'gmanka'
     gsettings set org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/{{ host_uuid.stdout }}/ use-custom-command true
-    gsettings set org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/{{ houst_uuid.stdout }}/ custom-command 'tmux'
+    gsettings set org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/{{ host_uuid.stdout }}/ custom-command 'tmux'
     gsettings set org.gnome.Ptyxis.Shortcuts copy-clipboard '<Control>c'
     gsettings set org.gnome.Ptyxis.Shortcuts paste-clipboard '<Control>v'
     gsettings set org.gnome.Ptyxis interface-style 'dark'
+- name: flatpak ptyxis mkdir
+  file:
+    path: '{{ ansible_env.HOME }}/.var/app/app.devsuite.Ptyxis/data/app.devsuite.Ptyxis/palettes'
+    state: directory
 - name: flatpak ptyxis palette
   when: flatpak_uuid.rc == 0
   copy:
