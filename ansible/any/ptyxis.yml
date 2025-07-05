@@ -10,13 +10,13 @@
   changed_when: false
 - name: host ptyxis mkdir
   file:
-    path: '{{ ansible_env.HOME }}/.local/share/app.devsuite.Ptyxis/palettes'
+    path: '{{ ansible_env.HOME }}/.local/share/org.gnome.Ptyxis/palettes'
     state: directory
 - name: host ptyxis palette
   when: host_uuid.rc == 0
   copy:
     src: ../homedir/.var/app/app.devsuite.Ptyxis/data/app.devsuite.Ptyxis/palettes/gmanka.palette
-    dest: '{{ ansible_env.HOME }}/.local/share/app.devsuite.Ptyxis/palettes/gmanka.palette'
+    dest: '{{ ansible_env.HOME }}/.local/share/org.gnome.Ptyxis/palettes/gmanka.palette'
 - name: host ptyxis config
   when: host_uuid.rc == 0
   shell: |
