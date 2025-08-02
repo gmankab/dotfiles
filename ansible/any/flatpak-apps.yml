@@ -3,6 +3,7 @@
     name:
       - org.gnome.World.Secrets
       - org.gnome.TextEditor
+      - org.gnome.Fractal
       - org.gnome.Epiphany
       - org.gnome.Loupe
       - org.mozilla.firefox
@@ -10,10 +11,12 @@
       - dev.neovide.neovide
       - dev.qwery.AddWater
       - com.mattjakeman.ExtensionManager
+      - com.github.tchx84.Flatseal
       - com.saivert.pwvucontrol
+      - net.nokyan.Resources
       - app.devsuite.Ptyxis
       - io.missioncenter.MissionCenter
-      - net.nokyan.Resources
+      - io.github.fabrialberio.pinapp
     state: present
     remote: flathub
     method: system
