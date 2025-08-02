@@ -1,0 +1,13 @@
+- name: flatpak neovide mkdir
+  file:
+    path: '{{ ansible_env.HOME }}/.var/app/dev.neovide.neovide/config/neovide'
+    state: directory
+- name: copy neovide config
+  copy:
+    src: ../homedir/.var/app/dev.neovide.neovide/config/neovide/config.toml
+    dest: '{{ ansible_env.HOME }}/.var/app/dev.neovide.neovide/config/neovide/config.toml'
+
+- name: clone nvim config
+  git:
+    repo: https://github.com/gmankab/nvim_config
+    dest: '{{ ansible_env.HOME }}/.var/app/dev.neovide.neovide/config/nvim'
