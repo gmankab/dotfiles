@@ -1,9 +1,9 @@
 [Container]
-Image=ghcr.io/grisha765/yggdrasil-go
+Image=ghcr.io/ergolyam/yggdrasil-go
 ContainerName=ygg
 AddCapability=NET_ADMIN
 AddDevice=/dev/net/tun
-Volume=ygg-config:/etc/yggdrasil-network:z
+Volume=/etc/yggdrasil-network:/etc/yggdrasil-network:z
 Network=host
 
 [Install]
