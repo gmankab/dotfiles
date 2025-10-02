@@ -12,6 +12,10 @@ set fish_cursor_replace_one underscore
 set fish_cursor_visual block
 set fish_greeting
 
+# edtior
+set SUDO_EDITOR 'flatpak --command=nvim run dev.neovide.neovide'
+set EDITOR 'flatpak --command=nvim run dev.neovide.neovide'
+
 # xdg
 set XDG_CONFIG_HOME $HOME/.config
 set XDG_CACHE_HOME $HOME/.cache
@@ -23,17 +27,3 @@ set PYTHONPYCACHEPREFIX $XDG_CACHE_HOME/python
 set PYTHONUSERBASE $XDG_DATA_HOME/python
 set PYTHON_HISTORY $XDG_STATE_HOME/python/history
 set RUFF_CACHE_DIR $XDG_CACHE_HOME/ruff
-
-if type -q zoxide
-    zoxide init fish | source
-    alias cd=__zoxide_z
-end
-
-if type -q nvim
-    set -x EDITOR nvim
-else if type -q vim
-    set -x EDITOR vim
-else if type -q vi
-    set -x EDITOR vi
-end
-
