@@ -12,18 +12,20 @@ set fish_cursor_replace_one underscore
 set fish_cursor_visual block
 set fish_greeting
 
-# edtior
 set SUDO_EDITOR 'flatpak --command=nvim run dev.neovide.neovide'
-set EDITOR 'flatpak --command=nvim run dev.neovide.neovide'
+set EDITOR      'flatpak --command=nvim run dev.neovide.neovide'
 
-# xdg
 set XDG_CONFIG_HOME $HOME/.config
-set XDG_CACHE_HOME $HOME/.cache
-set XDG_STATE_HOME $HOME/.local/state
-set XDG_DATA_HOME $HOME/.local/share
-set XDG_DATA_DIRS /usr/local/share:/usr/share:/var/lib/flatpak/exports/share:$XDG_DATA_HOME/flatpak/exports/share
-set XDG_CONFIG_DIRS /etc/xdg
-set PYTHONPYCACHEPREFIX $XDG_CACHE_HOME/python
-set PYTHONUSERBASE $XDG_DATA_HOME/python
-set PYTHON_HISTORY $XDG_STATE_HOME/python/history
-set RUFF_CACHE_DIR $XDG_CACHE_HOME/ruff
+set XDG_CACHE_HOME  $HOME/.cache
+set XDG_STATE_HOME  $HOME/.local/state
+set XDG_DATA_HOME   $HOME/.local/share
+
+set RUFF_CACHE_DIR           $XDG_CACHE_HOME/ruff
+set GIT_CONFIG_GLOBAL        $XDG_CONFIG_HOME/git/config
+set ANSIBLE_HOME             $XDG_CONFIG_HOME/ansible
+set ANSIBLE_CONFIG           $XDG_CONFIG_HOME/ansible.cfg
+set ANSIBLE_GALAXY_CACHE_DIR $XDG_CACHE_HOME/ansible/galaxy_cache
+set PYTHONPYCACHEPREFIX      $XDG_CACHE_HOME/python
+set PYTHON_HISTORY           $XDG_STATE_HOME/python/history
+set PYTHONUSERBASE           $XDG_DATA_HOME/python
+set HISTFILE                 $XDG_STATE_HOME/bash/history
