@@ -37,11 +37,10 @@ function prompt_icon
             set icon ''
     end
     if test -n "$SSH_CONNECTION"
-        set icon "󰌗 $icon"
+        echo -n "󰌗 $icon "
     end
     if test -n "$container"
-        set icon "⬢ $icon"
+        echo -n "⬢ $icon "
     end
-    echo -n $icon
 end
 
