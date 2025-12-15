@@ -11,6 +11,10 @@ input {
     }
     trackpoint {}
 }
+output "DP-2" {
+    scale 2
+    mode "2560x1440@179.999"
+}
 output "eDP-1" {
     scale 1
 }
@@ -18,14 +22,19 @@ output "DSI-1" {
     scale 2
     transform "270"
 }
-screenshot-path "~/files/screenshots/%Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/files/Pictures/screenshots/%Y-%m-%d %H-%M-%S.png"
 window-rule {
     open-maximized true
+    tiled-state true
 }
+window-rule {
+    match app-id="org.telegram.desktop"
+    block-out-from "screencast"
+}
+
 binds {
     Mod+O     { toggle-overview; }
     Mod+T     { spawn "ptyxis"; }
-    Mod+D     { spawn "fuzzel"; }
     Alt+Space { spawn "fuzzel"; }
     Mod+H     { focus-column-left; }
     Mod+I     { focus-column-right; }
@@ -82,4 +91,3 @@ layout {
     }
     struts {}
 }
-
