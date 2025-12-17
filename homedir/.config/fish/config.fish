@@ -15,17 +15,18 @@ set fish_greeting
 set SUDO_EDITOR 'flatpak --command=nvim run dev.neovide.neovide'
 set EDITOR      'flatpak --command=nvim run dev.neovide.neovide'
 
-set XDG_CONFIG_HOME $HOME/.config
-set XDG_CACHE_HOME  $HOME/.cache
-set XDG_STATE_HOME  $HOME/.local/state
-set XDG_DATA_HOME   $HOME/.local/share
+set -x XDG_CONFIG_HOME $HOME/.config
+set -x XDG_CACHE_HOME  $HOME/.cache
+set -x XDG_STATE_HOME  $HOME/.local/state
+set -x XDG_DATA_HOME   $HOME/.local/share
 
-set RUFF_CACHE_DIR           $XDG_CACHE_HOME/ruff
-set GIT_CONFIG_GLOBAL        $XDG_CONFIG_HOME/git/config
-set ANSIBLE_HOME             $XDG_CONFIG_HOME/ansible
-set ANSIBLE_CONFIG           $XDG_CONFIG_HOME/ansible.cfg
-set ANSIBLE_GALAXY_CACHE_DIR $XDG_CACHE_HOME/ansible/galaxy_cache
-set PYTHONPYCACHEPREFIX      $XDG_CACHE_HOME/python
-set PYTHON_HISTORY           $XDG_STATE_HOME/python/history
-set PYTHONUSERBASE           $XDG_DATA_HOME/python
-set HISTFILE                 $XDG_STATE_HOME/bash/history
+set -x CARGO_HOME               $XDG_DATA_HOME/cargo
+set -x RUFF_CACHE_DIR           $XDG_CACHE_HOME/ruff
+set -x GIT_CONFIG_GLOBAL        $XDG_CONFIG_HOME/git/config
+set -x ANSIBLE_HOME             $XDG_CONFIG_HOME/ansible
+set -x ANSIBLE_CONFIG           $XDG_CONFIG_HOME/ansible.cfg
+set -x ANSIBLE_GALAXY_CACHE_DIR $XDG_CACHE_HOME/ansible/galaxy_cache
+set -x PYTHONPYCACHEPREFIX      $XDG_CACHE_HOME/python
+set -x PYTHON_HISTORY           $XDG_STATE_HOME/python/history
+set -x PYTHONUSERBASE           $XDG_DATA_HOME/python
+set -x HISTFILE                 $XDG_STATE_HOME/bash/history
