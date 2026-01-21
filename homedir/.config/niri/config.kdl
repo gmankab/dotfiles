@@ -1,3 +1,4 @@
+include "eDP-1.kdl"
 input {
     keyboard {
         xkb {
@@ -15,9 +16,6 @@ output "DP-2" {
     scale 2
     mode "2560x1440@179.999"
 }
-output "eDP-1" {
-    scale 1
-}
 output "DSI-1" {
     scale 2
     transform "270"
@@ -28,44 +26,43 @@ window-rule {
     tiled-state true
 }
 window-rule {
-    match app-id="org.telegram.desktop"
-    block-out-from "screencast"
 }
 
 binds {
-    Mod+O     { toggle-overview; }
-    Mod+T     { spawn "ptyxis"; }
-    Alt+Space { spawn "fuzzel"; }
-    Mod+H     { focus-column-left; }
-    Mod+I     { focus-column-right; }
-    Mod+N     { focus-workspace-down; }
-    Mod+E     { focus-workspace-up; }
-    Mod+Left  { focus-column-left; }
-    Mod+Right { focus-column-right; }
-    Mod+Down  { focus-workspace-down; }
-    Mod+Up    { focus-workspace-up; }
-    Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+I     { move-column-right; }
-    Mod+Ctrl+N     { move-column-to-workspace-down; }
-    Mod+Ctrl+E     { move-column-to-workspace-up; }
-    Mod+Ctrl+Left  { move-column-left; }
-    Mod+Ctrl+Right { move-column-right; }
-    Mod+Ctrl+Down  { move-column-to-workspace-down; }
-    Mod+Ctrl+Up    { move-column-to-workspace-up; }
-    Mod+Minus       { set-column-width  "-10%"; }
-    Mod+Equal       { set-column-width  "+10%"; }
-    Mod+Shift+Minus { set-window-height "-10%"; }
-    Mod+Shift+Equal { set-window-height "+10%"; }
+    mod+o     { toggle-overview; }
+    mod+t     { spawn "ptyxis"; }
+    alt+space { spawn "fuzzel"; }
+    mod+h     { focus-column-left; }
+    mod+i     { focus-column-right; }
+    mod+n     { focus-workspace-down; }
+    mod+e     { focus-workspace-up; }
+    mod+left  { focus-column-left; }
+    mod+right { focus-column-right; }
+    mod+down  { focus-workspace-down; }
+    mod+up    { focus-workspace-up; }
+    mod+ctrl+h     { move-column-left; }
+    mod+ctrl+i     { move-column-right; }
+    mod+ctrl+n     { move-column-to-workspace-down; }
+    mod+ctrl+e     { move-column-to-workspace-up; }
+    mod+ctrl+left  { move-column-left; }
+    mod+ctrl+right { move-column-right; }
+    mod+ctrl+down  { move-column-to-workspace-down; }
+    mod+ctrl+up    { move-column-to-workspace-up; }
+    mod+minus       { set-column-width  "-10%"; }
+    mod+equal       { set-column-width  "+10%"; }
+    mod+shift+minus { set-window-height "-10%"; }
+    mod+shift+equal { set-window-height "+10%"; }
     mod+ctrl+shift+down  { spawn "brightnessctl" "s" "10%-"; }
     mod+ctrl+shift+up    { spawn "brightnessctl" "s" "10%+"; }
     xf86audiolowervolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
     xf86audioraisevolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     mod+shift+down       { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
     mod+shift+up         { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    mod+s                { spawn "cp" ".config/niri/template.kdl" ".config/niri/eDP-1.kdl"; }
     mod+backspace { quit; }
-    Mod+Space     { switch-layout "next"; }
-    Mod+Q         { close-window; }
-    Mod+F         { maximize-column; }
+    mod+space     { switch-layout "next"; }
+    mod+q         { close-window; }
+    mod+f         { maximize-column; }
     mod+ctrl+p    { screenshot-screen; }
     ctrl+print    { screenshot-screen; }
     alt+print     { screenshot-window; }
