@@ -1,5 +1,5 @@
 [Container]
-Image=ghcr.io/ergolyam/yggdrasil-go
+Image=ghcr.io/yggdrasil-network/yggdrasil-go:develop
 ContainerName=ygg
 AddCapability=NET_ADMIN
 AddDevice=/dev/net/tun
@@ -8,4 +8,3 @@ Network=host
 
 [Install]
 WantedBy=default.target
-
