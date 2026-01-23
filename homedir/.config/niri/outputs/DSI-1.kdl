@@ -1,0 +1,6 @@
+// xiaomi pad 5 screen
+output "DSI-1" {
+    scale 2
+    transform "270"
+    // 270 rotates screen from portrait to landscape mode
+}

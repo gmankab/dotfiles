@@ -1,0 +1,13 @@
+input {
+    keyboard {
+        xkb {
+            layout "us,ru"
+            variant "colemak,rulemak"
+        }
+    }
+    touchpad {
+        tap
+        natural-scroll
+    }
+    trackpoint {}
+}

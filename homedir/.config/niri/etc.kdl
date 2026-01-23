@@ -1,0 +1,15 @@
+screenshot-path "~/files/Pictures/screenshots/%Y-%m-%d %H-%M-%S.png"
+
+window-rule {
+    open-maximized true
+    tiled-state true
+}
+
+cursor {
+    hide-when-typing
+    hide-after-inactive-ms 1000
+}
+
+hotkey-overlay {
+    skip-at-startup
+}

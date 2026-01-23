@@ -1,0 +1,5 @@
+// external screen that i use on my thinkpad p14s
+output "DP-2" {
+    scale 2
+    mode "2560x1440@179.999"
+}
