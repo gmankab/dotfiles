@@ -1,6 +1,10 @@
 fish_vi_key_bindings
 fish_add_path -m ~/.local/bin
 
+alias nvim='flatpak --command=nvim run dev.neovide.neovide'
+alias gitui='flatpak run io.github.gitui_org.gitui'
+alias gh='flatpak run com.github.cli'
+
 bind y fish_clipboard_copy
 bind p fish_clipboard_paste
 bind -M default n 'down-or-search'
