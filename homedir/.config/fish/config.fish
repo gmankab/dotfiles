@@ -1,4 +1,3 @@
-fish_vi_key_bindings
 fish_add_path -m ~/.local/bin
 
 alias nvim='flatpak --command=nvim run dev.neovide.neovide'
@@ -9,6 +8,9 @@ bind y fish_clipboard_copy
 bind p fish_clipboard_paste
 bind -M default n 'down-or-search'
 bind -M default e 'up-or-search'
+
+set --global fish_key_bindings fish_vi_key_bindings
+set --erase --universal fish_key_bindings
 
 set fish_cursor_default block
 set fish_cursor_insert line
