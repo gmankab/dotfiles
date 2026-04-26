@@ -4,12 +4,8 @@ AutoUpdate=registry
 PublishPort=8096:8096/tcp
 Volume=jellyfin-config:/config:z
 Volume=jellyfin-cache:/cache:z
-Volume=/var/home/core/files/torrent:/media:z
+Volume=%h/files/torrents:/media:z
 
 [Service]
 SuccessExitStatus=0 143
 Restart=on-failure
-
-[Install]
-WantedBy=default.target
-
