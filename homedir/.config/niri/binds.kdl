@@ -10,12 +10,12 @@ binds {
     mod+right { focus-column-right; }
     mod+down  { focus-workspace-down; }
     mod+up    { focus-workspace-up; }
-    mod+ctrl+h     { move-column-left; }
-    mod+ctrl+i     { move-column-right; }
+    mod+ctrl+h     { move-column-left-or-to-monitor-left; }
+    mod+ctrl+i     { move-column-right-or-to-monitor-right; }
     mod+ctrl+n     { move-column-to-workspace-down; }
     mod+ctrl+e     { move-column-to-workspace-up; }
-    mod+ctrl+left  { move-column-left; }
-    mod+ctrl+right { move-column-right; }
+    mod+ctrl+left  { move-column-left-or-to-monitor-left; }
+    mod+ctrl+right { move-column-right-or-to-monitor-right; }
     mod+ctrl+down  { move-column-to-workspace-down; }
     mod+ctrl+up    { move-column-to-workspace-up; }
     mod+minus       { set-column-width  "-10%"; }
@@ -28,11 +28,12 @@ binds {
     xf86audioraisevolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     mod+shift+down       { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
     mod+shift+up         { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-    mod+s                { spawn "cp" ".config/niri/template.kdl" ".config/niri/eDP-1.kdl"; }
+    mod+s                { spawn "cp" ".config/niri/outputs/eDP-1-template.kdl" ".config/niri/outputs/eDP-1.kdl"; }
     mod+backspace { quit; }
     mod+space     { switch-layout "next"; }
     mod+q         { close-window; }
     mod+f         { maximize-column; }
+    mod+shift+f   { fullscreen-window; }
     mod+ctrl+p    { screenshot-screen; }
     ctrl+print    { screenshot-screen; }
     alt+print     { screenshot-window; }
