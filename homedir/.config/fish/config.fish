@@ -36,3 +36,4 @@ set -x PYTHONPYCACHEPREFIX      $XDG_CACHE_HOME/python
 set -x PYTHON_HISTORY           $XDG_STATE_HOME/python/history
 set -x PYTHONUSERBASE           $XDG_DATA_HOME/python
 set -x HISTFILE                 $XDG_STATE_HOME/bash/history
+set -x CODEX_HOME              $HOME/.var/app/com.openai.codex/config/codex
