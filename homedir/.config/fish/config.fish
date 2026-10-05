@@ -1,8 +1,13 @@
 fish_add_path -m ~/.local/bin
 
-alias nvim='flatpak --command=nvim run dev.neovide.neovide'
-alias gitui='flatpak run io.github.gitui_org.gitui'
-alias gh='flatpak run com.github.cli'
+alias fastfetch='nix run nixpkgs#fastfetch --'
+alias gitui='toolbox run gitui'
+alias glab='toolbox run glab'
+alias nvim='toolbox run nvim'
+alias dua='toolbox run dua'
+alias gh='toolbox run gh'
+alias fd='toolbox run fd'
+alias rg='toolbox run rg'
 
 bind y fish_clipboard_copy
 bind p fish_clipboard_paste
@@ -18,8 +23,8 @@ set fish_cursor_replace_one underscore
 set fish_cursor_visual block
 set fish_greeting
 
-set SUDO_EDITOR 'flatpak --command=nvim run dev.neovide.neovide'
-set EDITOR      'flatpak --command=nvim run dev.neovide.neovide'
+set SUDO_EDITOR 'toolbox run nvim'
+set EDITOR      'toolbox run nvim'
 
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME  $HOME/.cache
@@ -36,4 +41,5 @@ set -x PYTHONPYCACHEPREFIX      $XDG_CACHE_HOME/python
 set -x PYTHON_HISTORY           $XDG_STATE_HOME/python/history
 set -x PYTHONUSERBASE           $XDG_DATA_HOME/python
 set -x HISTFILE                 $XDG_STATE_HOME/bash/history
-set -x CODEX_HOME              $HOME/.var/app/com.openai.codex/config/codex
+set -x CODEX_HOME               $HOME/.var/app/com.openai.codex/config/codex
+set -x CODEX_SQLITE_HOME        $HOME/.var/app/com.openai.codex/config/codex
