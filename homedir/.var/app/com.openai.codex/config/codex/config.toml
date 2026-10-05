@@ -1,0 +1,12 @@
+web_search = "live"
+tui.vim_mode_default = true
+tui.fullscreen_transcript = true
+
+[tui.keymap.vim_normal]
+move_down = "n"
+move_up = "e"
+move_word_end = []
+
+[tui.keymap.pager]
+scroll_down = "n"
+scroll_up = "e"
