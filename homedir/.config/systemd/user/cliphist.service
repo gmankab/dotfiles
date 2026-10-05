@@ -1,6 +1,0 @@
-[Service]
-ExecStart=wl-paste --watch cliphist store
-
-[Install]
-WantedBy=default.target
-
