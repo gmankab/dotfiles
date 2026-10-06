@@ -1,0 +1,6 @@
+{
+  "autoupdate": false,
+  "plugin": [
+    "@satas/opencode-usage-bar"
+  ]
+}

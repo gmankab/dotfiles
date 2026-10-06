@@ -1,0 +1,11 @@
+[ui]
+show_bars = true
+show_status = true
+
+[anthropic]
+enabled = false
+
+[openai]
+enabled = true
+show_5h = true
+show_7d = true

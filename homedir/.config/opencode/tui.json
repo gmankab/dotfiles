@@ -1,0 +1,18 @@
+{
+  "vim_system_clipboard_register": true,
+  "plugin_enabled": {
+    "which-key": true
+  },
+  "plugin": [
+    "@satas/opencode-usage-bar"
+  ],
+  "keybinds": {
+    "vim.normal": {
+      "leader": "space"
+    }
+  },
+  "vim_langmap": {
+    "n": "j",
+    "e": "k"
+  }
+}
