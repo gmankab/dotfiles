@@ -1,14 +1,12 @@
 [Container]
 Image=ghcr.io/xtls/xray-core:latest
-UserNS=keep-id:uid=65532,gid=65532
-Volume=%h/.config/xray:/usr/local/etc/xray:ro,Z
+Volume=%h/.config/xray:/usr/local/etc/xray:ro,z
 Network=pasta
 PublishPort=2080:2080
 Exec=run -confdir /usr/local/etc/xray/
 
 [Service]
 Restart=on-failure
-RestartSec=10s
 
 [Install]
 WantedBy=default.target
